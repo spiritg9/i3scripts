@@ -38,7 +38,7 @@ if player == "audacious" and (title is None or title == "(null)" or title == "")
 maxLen = 30 
 maxLen = maxLen - 3 # for player chars
 l = len(title)
-if len(title) == 0:
+if l == 0:
     print(pChar)
 elif l > maxLen:
     i = int(time.time()%(l-maxLen))
