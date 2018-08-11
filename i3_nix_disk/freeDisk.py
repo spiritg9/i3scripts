@@ -9,7 +9,7 @@ o = os.popen("df -h | grep home | awk '{ print $4 }' ")
 o = o.read().strip()
 
 free =  float(o[:-1])
-print(free)
+print("%sG" %free)
 if free < 10:
     print("#ff0000")
     print("#ff0000")

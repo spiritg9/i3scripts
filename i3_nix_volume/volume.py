@@ -1,10 +1,6 @@
 #!/usr/bin/env python
 import os
 import sys
-import logging
-
-logging.basicConfig(filename='example.log',level=logging.DEBUG)
-logging.info("test")
 
 volume = os.popen("pamixer --get-volume")
 volume = volume.read().strip()

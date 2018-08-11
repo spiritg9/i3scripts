@@ -2,12 +2,10 @@
 
 import xml.etree.ElementTree as ET
 from requests import get
-import sys
 
 w = get("http://vrijeme.hr/hrvatska_n.xml")
 
-#POSTAJA = "Zagreb-Grič"
-POSTAJA = sys.argv[1]
+POSTAJA = "Zagreb-Maksimir"
 TEMP = "Temp"
 VRIJEME = "Vrijeme"
 
@@ -31,7 +29,7 @@ for child in e.findall('Grad'):
         elif "sunčano" in vrijeme or "sunce" in vrijeme:
             print("☀" + temp + "℃")
         else:
-            print("☼" + temp + "℃")
+            print("w" + temp + "℃")
         tempI = float(temp)
         if tempI < -10:
             print("#ffffff")
