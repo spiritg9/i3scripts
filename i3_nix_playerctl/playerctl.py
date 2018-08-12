@@ -35,10 +35,10 @@ if player == "audacious" and (title is None or title == "(null)" or title == "")
             o = os.popen("audacious")
 
 
-maxLen = 30 
+maxLen = 40 
 maxLen = maxLen - 3 # for player chars
 l = len(title)
-if l == 0:
+if l == 0 or title == "(null)":
     print(pChar)
 elif l > maxLen:
     i = int(time.time()%(l-maxLen))
@@ -66,9 +66,9 @@ if buttonValue != '':
     elif buttonValue == "3":
         o = os.popen("playerctl -p %s stop" %player)
     elif buttonValue == "4":
-        o = os.popen("playerctl -p %s volume 0.2+" %player)
+        o = os.popen("playerctl -p %s volume 0.05+" %player)
     elif buttonValue == "5":
-        o = os.popen("playerctl -p %s volume 0.2-" %player)
+        o = os.popen("playerctl -p %s volume 0.05-" %player)
     elif buttonValue == "8":
         o = os.popen("playerctl -p %s next" %player)
     elif buttonValue == "9":
