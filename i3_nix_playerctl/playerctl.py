@@ -23,11 +23,6 @@ title = title.read().strip()
 status = os.popen(cmdStatus)
 status = status.read().strip()
 
-if player == "audacious":
-    pChar = "A"
-elif player == "plasma-browser-integration":
-    pChar = "Y" # Y as youtube, although it can be something else
-
 if player == "audacious" and (title is None or title == "(null)" or title == ""):
     title = ""
     if buttonValue != '':
@@ -39,14 +34,14 @@ maxLen = 30
 maxLen = maxLen - 3 # for player chars
 l = len(title)
 if l == 0:
-    print(pChar)
+    print(" ")
 elif l > maxLen:
     i = int(time.time()%(l-maxLen))
     if i + maxLen >= l:
         i = l - maxLen 
-    print(pChar + ": " + title[i:i+maxLen+1])
+    print(title[i:i+maxLen+1])
 else:
-    print(pChar + ": " + title)
+    print(title)
 
 if status == "Playing":
     print("#00AFFF")
@@ -60,17 +55,17 @@ else:
 
 if buttonValue != '':
     if buttonValue == "1":
-        o = os.popen("playerctl -p %s play-pause" %player)
+        os.popen("playerctl -p %s play-pause" %player)
     elif buttonValue == "2" and player == "audacious":
-        title = os.popen("killall audacious")
+        os.popen("killall audacious")
     elif buttonValue == "3":
-        o = os.popen("playerctl -p %s stop" %player)
+        os.popen("playerctl -p %s stop" %player)
     elif buttonValue == "4":
-        o = os.popen("playerctl -p %s volume 0.2+" %player)
+        os.popen("playerctl -p %s volume 0.2+" %player)
     elif buttonValue == "5":
-        o = os.popen("playerctl -p %s volume 0.2-" %player)
+        os.popen("playerctl -p %s volume 0.2-" %player)
     elif buttonValue == "8":
-        o = os.popen("playerctl -p %s next" %player)
+        os.popen("playerctl -p %s next" %player)
     elif buttonValue == "9":
-        o = os.popen("playerctl -p %s previous" %player)
+        os.popen("playerctl -p %s previous" %player)
 
