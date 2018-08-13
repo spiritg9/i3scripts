@@ -1,11 +1,16 @@
 #! /bin/env python3
 
 import xml.etree.ElementTree as ET
+import os
 from requests import get
 
 w = get("http://vrijeme.hr/hrvatska_n.xml")
 
-POSTAJA = "Zagreb-Maksimir"
+try:
+    POSTAJA = os.environ["BLOCK_INSTANCE"]
+except:
+    print("Error: could not parse station")
+    exit(1)
 TEMP = "Temp"
 VRIJEME = "Vrijeme"
 
