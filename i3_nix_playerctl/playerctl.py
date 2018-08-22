@@ -79,13 +79,6 @@ except:
 status = getStatus(player)
 title = getTitle(player)
 
-if player == "audacious" and (title is None or title == "(null)" or title == ""):
-    title = ""
-    if buttonValue != '':
-        if buttonValue == "1":
-            o = os.popen("audacious")
-
-
 if buttonValue != '':
     if buttonValue == "1":
         os.popen("playerctl -p %s play-pause" %player)
