@@ -35,9 +35,9 @@ def printSongTitle(title, volume=None):
         if i + maxLen >= l:
             i = l - maxLen 
         if volume is None:
-            print(title[i:i+maxLen+1-3] + " " +volume)
-        else:
             print(title[i:i+maxLen+1])
+        else:
+            print(title[i:i+maxLen+1-3] + " " +volume)
     else:
         if volume is None:
             print(title)
