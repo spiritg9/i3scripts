@@ -12,15 +12,14 @@ if mute == "true":
 elif mute == "false":
     muteColor = "#00ff00"
 
-if len(sys.argv) > 1:
-    buttonValue = sys.argv[1]
-    if buttonValue != '':
-        if buttonValue == "1":
-            o = os.popen("pamixer -t")
-        elif buttonValue == "4":
-            o = os.popen("pamixer -i 2")
-        elif buttonValue == "5":
-            o = os.popen("pamixer -d 2")
+if "BLOCK_BUTTON" in os.environ:
+    buttonValue = os.environ["BLOCK_BUTTON"]
+    if buttonValue == "1":
+        o = os.popen("pamixer -t")
+    elif buttonValue == "4":
+        o = os.popen("pamixer -i 2")
+    elif buttonValue == "5":
+        o = os.popen("pamixer -d 2")
 
 print(volume + "%")
 print(muteColor)
