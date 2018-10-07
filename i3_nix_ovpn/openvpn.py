@@ -48,8 +48,13 @@ if __name__ == "__main__":
         buttonValue = os.environ["BLOCK_BUTTON"]
         if buttonValue == "1" and pid == "":
             startIt(instance)
+            if instance == "erniRL":
+                os.system("doas cp /etc/resolv.conf /etc/resolv-beforeVPN.conf")
+                os.system("doas cp /etc/resolv-rl.conf /etc/resolv.conf")
         elif buttonValue == "3" and pid != "":
             killIt(pid)
+            if instance == "erniRL":
+                os.system("doas cp /etc/resolv-beforeVPN.conf /etc/resolv.conf") # copy cloudflare dns on killing rl vpn
 
     printIt(text, color)
 
